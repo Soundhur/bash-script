@@ -1,39 +1,43 @@
 /******************************************************************************
 
 Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
 Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
+
+#include <time.h>
 #include <stdio.h>
-#include <conio.h>
+#include <stdlib.h>
  
- 
-int main()
+int main(void)
 {
-    int a[1000],i,n,min,max;
-   
-    printf("Enter size of the array : ");
-    scanf("%d",&n);
+    /* Length of the password */
+    int length;
+    int num;
+    int temp;
+    printf("Enter the length of the password: ");
+    scanf("%d", &length);
+    printf("\nEnter the number of passwords you want: ");
+    scanf("%d", &num);
+    /* Seed number for rand() */
+    srand((unsigned int) time(0) + getpid());
  
-    printf("Enter elements in array : ");
-    for(i=0; i<n; i++)
+    while(num--)
     {
-        scanf("%d",&a[i]);
+        temp = length;
+        printf("\n");
+        while(temp--) {
+            putchar(rand() % 56 + 65);
+            srand(rand());
+        }
+ 
+        temp = length;
     }
  
-    min=max=a[0];
-    for(i=1; i<n; i++)
-    {
-         if(min>a[i])
-		  min=a[i];   
-		   if(max<a[i])
-		    max=a[i];       
-    }
-     printf("minimum of array is : %d",min);
-          printf("\nmaximum of array is : %d",max);
+    printf("\n");
  
- 
-    return 0;
+    return EXIT_SUCCESS;
 }
+
